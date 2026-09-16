@@ -1,25 +1,31 @@
-# Bot Summary
+Trading System
 
-Ticker: UPRO
+A Python-based automated intraday trading bot that connects to Schwab API.
+Based on initial hypothesis that markets will trade sideways during oil crisis. Chose 3x leveraged QQQ and SPY for amplified swings and liquidity.
+Built with purpose to explore systematic trading and quantitative strategy development.
 
-Timeframe: 5-min candles
+Strategy
 
-Position limit: 1 open position at a time
+The trading strategy incorporates:
 
-Position size: 1 Share
+50-period and 150-period moving averages (5min candles)
+35-period rolling standard deviation (5min candles)
+Moving-average slope and momentum signals
+Volatility-adjusted entry bands
+Dynamic stop-losses
+Trailing stops
+Take-profit levels
+End-of-day profit exits
+Trading cool downs following losses
 
-Entry:
+The system includes:
 
-1. Price below lower band as determined by SD and candle is rising
-
-2. Price is rising above SMA while SMA in downtrend
-
-Exit:
-
-1. Take profit: +3% or +5% based on volatility and technical signals
-
-2. Trailing stop: take profit if price declines to a percentage during profit
-
-3. Stop loss: from 1.8% to 0.75% depending on volatility
-
-
+Real-time price streaming through the Schwab API
+Automated limit-order execution
+Fill-or-kill orders
+Position synchronization with the brokerage account
+Persistent state saved between restarts
+Trade and polling logs
+Token/session management
+Duplicate-position safeguards
+Automatic trading halts after predefined loss conditions
